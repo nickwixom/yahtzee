@@ -21,37 +21,82 @@ namespace yahtzee
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Game CurrentGame { get; set; }
+
+        public static MainWindow Singleton { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            Singleton = this;
         }
+
         // opens a window to input number/names of players on start click
         private void start_Click(object sender, RoutedEventArgs e)
         {
-            string numPlayersString = Interaction.InputBox("How many players (up to 4)?", "Players", "1");
-            int numPlayers=Convert.ToInt32(numPlayersString);
-            if (numPlayers == 1)
+            /*
+            bool validEntry = true;
+
+            int numPlayers = 1;
+
+            while (validEntry)
             {
-                string player1Name = Interaction.InputBox("Enter Player 1 name: ", "Player 1 name","Player 1");
+                string numPlayersString = Interaction.InputBox("How many players (up to 4)?", "Players", "1");
+
+                // convert string to a number and ensure it is within bounds
+                
+                bool success = Int32.TryParse(numPlayersString, out numPlayers);
+
+                if (!success)
+                {
+                    MessageBox.Show("Not a number");
+                }
+                else if (numPlayers < 1 || numPlayers > 4)
+                {
+                    MessageBox.Show("Number of players is incorrect");
+                }
+                else
+                {
+                    // succesful entry
+                    validEntry = false;
+                }
             }
-            else if (numPlayers == 2)
-            {
-                string player1Name = Interaction.InputBox("Enter Player 1 name: ", "Player 1 name", "Player 1");
-                string player2Name = Interaction.InputBox("Enter Player 2 name: ", "Player 2 name", "Player 2");
-            }
-            else if (numPlayers == 3)
-            {
-                string player1Name = Interaction.InputBox("Enter Player 1 name: ", "Player 1 name", "Player 1");
-                string player2Name = Interaction.InputBox("Enter Player 2 name: ", "Player 2 name", "Player 2");
-                string player3Name = Interaction.InputBox("Enter Player 3 name: ", "Player 3 name", "Player 3");
-            }
-            else if (numPlayers == 4)
-            {
-                string player1Name = Interaction.InputBox("Enter Player 1 name: ", "Player 1 name", "Player 1");
-                string player2Name = Interaction.InputBox("Enter Player 2 name: ", "Player 2 name", "Player 2");
-                string player3Name = Interaction.InputBox("Enter Player 3 name: ", "Player 3 name", "Player 3");
-                string player4Name = Interaction.InputBox("Enter Player 4 name: ", "Player 4 name", "Player 4");
-            }
+
+            
+            List<Player> players = new List<Player>();
+            string playerName;
+
+            for (int i = 0; i < numPlayers; i++)
+			{
+			    playerName = Interaction.InputBox(string.Format("Enter Player {0} name: ", i + 1), string.Format("Player {0} name", i + 1), string.Format("Player {0}", i + 1));
+
+                players.Add(new Player(playerName));
+			}
+            */
+
+            // short way...
+       //     List<Player> players = new List<Player>(2) { new Player("Oli"), new Player("Nick") };
+
+            // start a new game with these players
+
+      //      CurrentGame = new Game(players);
+
+            CurrentGame = Game.NewDefaultGame();
+
+            // even shorter way....
+
+            // make the first player active
+            CurrentGame.Players[0].IsActive = true;
+
+            CurrentGame.NewTurn();
+
+            Die d = new Die();
+
+            d.Roll();
+            d.Roll();
+            d.Locked = true;
+
         }
 
         private void lockOne_Click(object sender, RoutedEventArgs e)

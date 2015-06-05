@@ -22,7 +22,7 @@
 
         <TextBox x:Name="scorecard" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="745" Height="390" Margin="10"/>
 
-        <TextBox x:Name="scoreboard" Grid.Column="3" Grid.Row="1" Width="215" Height="211" VerticalAlignment="Top" Margin="19.4,3.6,20.8,0"/>
+        <TextBox x:Name="scoreboard" Grid.Column="3" Grid.Row="1" Width="215" Height="220" VerticalAlignment="Top" Margin="19,4,21,0"/>
 
         <Button x:Name="start" Grid.Column="4" Grid.Row="1" Height="75" Content="Start!" FontSize="32" Click="start_Click" Margin="20.2,80.2,12,78.4"/>
 
