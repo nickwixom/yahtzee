@@ -54,8 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Scoring\Ones.cs" />
     <Compile Include="Scoring\ScoringHands.cs" />
+    <Compile Include="Scoring\TopHalfScoringHands.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

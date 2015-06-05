@@ -97,6 +97,18 @@ namespace yahtzee
             d.Roll();
             d.Locked = true;
 
+            List<Scoring.TopHalfScoringHands> allTopHalf = new List<Scoring.TopHalfScoringHands>(2)
+            {
+                new Scoring.TopHalfScoringHands(1),
+                new Scoring.TopHalfScoringHands(2),
+                new Scoring.TopHalfScoringHands(3),
+                new Scoring.TopHalfScoringHands(4)
+
+
+            }
+
+            Scoring.TopHalfScoringHands ones = new Scoring.TopHalfScoringHands(1);
+
         }
 
         private void lockOne_Click(object sender, RoutedEventArgs e)
