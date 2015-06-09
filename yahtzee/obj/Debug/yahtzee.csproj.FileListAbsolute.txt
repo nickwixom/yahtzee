@@ -24,3 +24,5 @@ C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.g.resources
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.Properties.Resources.resources
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.csproj.GenerateResource.Cache
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.csprojResolveAssemblyReference.cache
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\bin\Debug\Mogre.dll
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\bin\Debug\MogreNewt.dll

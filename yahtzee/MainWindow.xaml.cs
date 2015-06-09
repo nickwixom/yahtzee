@@ -13,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using yahtzee.Scoring;
+
+using Mogre;
+using MogreNewt;
 
 namespace yahtzee
 {
@@ -30,6 +34,8 @@ namespace yahtzee
             InitializeComponent();
 
             Singleton = this;
+
+
         }
 
         // opens a window to input number/names of players on start click
@@ -97,17 +103,16 @@ namespace yahtzee
             d.Roll();
             d.Locked = true;
 
-            List<Scoring.TopHalfScoringHands> allTopHalf = new List<Scoring.TopHalfScoringHands>(2)
+            List<TopHalfScoringHands> allTopHalf = new List<TopHalfScoringHands>(6)
             {
-                new Scoring.TopHalfScoringHands(1),
-                new Scoring.TopHalfScoringHands(2),
-                new Scoring.TopHalfScoringHands(3),
-                new Scoring.TopHalfScoringHands(4)
+                new TopHalfScoringHands(1),
+                new TopHalfScoringHands(2),
+                new TopHalfScoringHands(3),
+                new TopHalfScoringHands(4),
+                new TopHalfScoringHands(5),
+                new TopHalfScoringHands(6)
+            };
 
-
-            }
-
-            Scoring.TopHalfScoringHands ones = new Scoring.TopHalfScoringHands(1);
 
         }
 

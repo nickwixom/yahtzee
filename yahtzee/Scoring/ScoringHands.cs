@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace yahtzee.Scoring
 {
-    class ScoringHands
+    public abstract class ScoringHands
     {
         // properties
         public int Score { get; set; }
@@ -17,7 +17,9 @@ namespace yahtzee.Scoring
 
 
         // methods
-        abstract public bool ValidCheck(Die[] Dice);
+        public abstract bool ValidCheck(Die[] Dice);
+
+        public abstract int CalcScore(Die[] Dice);
 
     }
 }

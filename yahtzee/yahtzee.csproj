@@ -35,6 +35,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Mogre">
+      <HintPath>..\packages\Mogre1.7.4.1.0.6\lib\Mogre.dll</HintPath>
+    </Reference>
+    <Reference Include="MogreNewt">
+      <HintPath>..\packages\Mogre1.7.4.1.0.6\lib\MogreNewt.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -54,7 +60,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Scoring\Chance.cs" />
+    <Compile Include="Scoring\FourOfAKind.cs" />
+    <Compile Include="Scoring\FullHouse.cs" />
+    <Compile Include="Scoring\Repeats.cs" />
     <Compile Include="Scoring\ScoringHands.cs" />
+    <Compile Include="Scoring\LargeStraight.cs" />
+    <Compile Include="Scoring\SmallStraight.cs" />
+    <Compile Include="Scoring\Straights.cs" />
+    <Compile Include="Scoring\ThreeOfAKind.cs" />
     <Compile Include="Scoring\TopHalfScoringHands.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,6 +105,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,6 +122,18 @@
     <Resource Include="Images\yahtzee.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+    if EXIST "$(SolutionDir)\packages\Mogre1.7.4.1.0.6\tools\Mogre.Dependencies.Debug\Mogre.dll" (
+        copy "$(SolutionDir)\packages\Mogre1.7.4.1.0.6\tools\Mogre.Dependencies.Debug\*" "$(TargetDir))"
+    ) ELSE (
+        copy "$(SolutionDir)\packages\Mogre1.7.4.1.0.6\tools\Mogre.Dependencies.Release\*" "$(TargetDir)"
+    )
+) ELSE (
+    copy "$(SolutionDir)\packages\Mogre1.7.4.1.0.6\tools\Mogre.Dependencies.Release\*" "$(TargetDir)"
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

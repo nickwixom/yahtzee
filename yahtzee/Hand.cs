@@ -13,7 +13,7 @@ namespace yahtzee
 
         
         // properties
-        static public int NumDie = 4;
+        static public int NumDie = 5;
 
         public int MaxValue { get; set; }
 
