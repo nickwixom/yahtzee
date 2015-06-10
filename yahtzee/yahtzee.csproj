@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NotifyPropertyChanged.cs" />
     <Compile Include="Scoring\Chance.cs" />
     <Compile Include="Scoring\FourOfAKind.cs" />
     <Compile Include="Scoring\FullHouse.cs" />
@@ -70,6 +71,11 @@
     <Compile Include="Scoring\Straights.cs" />
     <Compile Include="Scoring\ThreeOfAKind.cs" />
     <Compile Include="Scoring\TopHalfScoringHands.cs" />
+    <Compile Include="Scoring\Yahtzee.cs" />
+    <Compile Include="UserControls\Dice.xaml.cs">
+      <DependentUpon>Dice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PipsToImageConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +91,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\Dice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Player.cs" />
@@ -120,6 +130,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\yahtzee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\die_1.gif" />
+    <Resource Include="Images\die_2.gif" />
+    <Resource Include="Images\die_3.gif" />
+    <Resource Include="Images\die_4.gif" />
+    <Resource Include="Images\die_5.gif" />
+    <Resource Include="Images\die_6.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

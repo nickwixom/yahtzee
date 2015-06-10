@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,24 +32,28 @@ namespace yahtzee
                     // if this player is active, make all the other players inactive
 
                     // => indicates LINQ ... look it up
-                    MainWindow.Singleton.CurrentGame.Players.ForEach(p => { if (p != this && p.IsActive) { p.IsActive = false; } });
+                    if (MainWindow.Singleton.CurrentGame != null) MainWindow.Singleton.CurrentGame.Players.ForEach(p => { if (p != this && p.IsActive) { p.IsActive = false; } });
 
                 //    MainWindow.Singleton.CurrentGame.Players.Any(p => p.IsActive);
+
+                    // give the active player a new hand
+                    CurrentHand.Reset();
+
 
                 }
             }
         }
 
+        public Dictionary<Scoring.ScoringHands, bool> Scores { get; set; }
 
         // constructors
-        public Player()
-        {
-
-        }
+        public Player() : this("") { }
 
         public Player(string name)
         {
             Name = name;
+
+            CurrentHand = new Hand();
         }
 
 
@@ -68,7 +73,14 @@ namespace yahtzee
             return MainWindow.Singleton.CurrentGame.Players[index];
         }
 
+        public void InitializeIntoGame(Game g)
+        {
+            Scores = new Dictionary<Scoring.ScoringHands, bool>(g.AllScoringHands.Count);
 
-
+            foreach (Scoring.ScoringHands h in g.AllScoringHands)
+            {
+                Scores.Add(h, false);
+            }
+        }
     }
 }

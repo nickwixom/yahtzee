@@ -8,6 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("yahtzee.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/die_1.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/die_2.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/die_3.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/die_4.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/die_5.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/die_6.gif")]
 
 

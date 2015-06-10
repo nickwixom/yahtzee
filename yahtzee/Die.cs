@@ -1,19 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace yahtzee
 {
-    public class Die
+    public class Die : INotifyPropertyChanged
     {
         // fields
-        private Random rnd = new Random();
+        
 
         // properties
         // value of dice
-        public int Pips { get; set; }
+        private int pips = 1;
+        public int Pips 
+        {
+            get { return pips; }
+            set
+            {
+                pips = value;
+
+                PropertyChanged.Raise(this, "Pips");
+            }
+        }
 
         // is dice locked
         public bool Locked { get; set; }
@@ -31,17 +42,18 @@ namespace yahtzee
         // methods
         public void Roll()
         {
+            Random rnd = new Random(Guid.NewGuid().GetHashCode());
             if (!Locked)
             {
                 Pips = rnd.Next(1, 6);
             }
         }
-               
 
+        public override string ToString()
+        {
+            return Pips.ToString();
+        }
 
-
-
-
-
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -6,25 +6,32 @@ using System.Threading.Tasks;
 
 namespace yahtzee.Scoring
 {
-    public class Chance : ScoringHands
+    public class Yahtzee : Repeats
     {
-        public Chance()
+        // fields
+
+
+        // properties
+
+
+        // constructors
+        public Yahtzee() 
         {
-            Name = "chance";
+            Name = "yahtzee";
         }
+
+        // methods
         public override bool ValidCheck(Die[] Dice)
         {
-            return true;
+            bool checkRepeat = RepeatCheck(Dice, 5);
+            return checkRepeat;
         }
+
         public override int CalcScore(Die[] Dice)
         {
-            int score = 0;
-            score = Dice.Select(d => d.Pips).Sum();
+            int score = 50;
             return score;
         }
-
-
-
 
 
 

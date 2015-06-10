@@ -23,6 +23,10 @@ C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee_MarkupCompile.ca
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.g.resources
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.Properties.Resources.resources
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.csproj.GenerateResource.Cache
-C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.csprojResolveAssemblyReference.cache
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\bin\Debug\Mogre.dll
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\bin\Debug\MogreNewt.dll
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\Dice.g.cs
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee_MarkupCompile.lref
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\Dice.baml
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.csprojResolveAssemblyReference.cache

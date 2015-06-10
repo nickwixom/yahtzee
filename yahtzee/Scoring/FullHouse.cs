@@ -8,6 +8,12 @@ namespace yahtzee.Scoring
 {
     public class FullHouse : Repeats
     {
+        // constructors
+        public FullHouse()
+        {
+            Name = "fullHouse";
+        }
+
         // methods
         public override bool ValidCheck(Die[] Dice)
         {

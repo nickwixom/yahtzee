@@ -35,6 +35,9 @@ namespace yahtzee
 
             Singleton = this;
 
+            CurrentGame = Game.NewDefaultGame();
+
+            DataContext = CurrentGame;
 
         }
 
@@ -88,58 +91,20 @@ namespace yahtzee
 
       //      CurrentGame = new Game(players);
 
-            CurrentGame = Game.NewDefaultGame();
-
+            
             // even shorter way....
 
             // make the first player active
-            CurrentGame.Players[0].IsActive = true;
-
-            CurrentGame.NewTurn();
-
-            Die d = new Die();
-
-            d.Roll();
-            d.Roll();
-            d.Locked = true;
-
-            List<TopHalfScoringHands> allTopHalf = new List<TopHalfScoringHands>(6)
-            {
-                new TopHalfScoringHands(1),
-                new TopHalfScoringHands(2),
-                new TopHalfScoringHands(3),
-                new TopHalfScoringHands(4),
-                new TopHalfScoringHands(5),
-                new TopHalfScoringHands(6)
-            };
-
-
+            
         }
 
-        private void lockOne_Click(object sender, RoutedEventArgs e)
+        private void roll_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("temp", "temp", MessageBoxButton.OKCancel, MessageBoxImage.Information);
-        }
+            CurrentGame.ActivePlayer.CurrentHand.Roll();
 
-        private void lockTwo_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
-        private void lockThree_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void lockFour_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void lockFive_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
 
 

@@ -9,7 +9,10 @@ namespace yahtzee.Scoring
     public class SmallStraight : Straights
     {
         // constructors
-        public SmallStraight() { }
+        public SmallStraight() 
+        {
+            Name = "smallStraight";
+        }
 
         // methods
         public override bool ValidCheck(Die[] Dice)

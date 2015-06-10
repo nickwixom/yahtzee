@@ -9,7 +9,10 @@ namespace yahtzee.Scoring
     public class ThreeOfAKind : Repeats
     {
         // constructors
-        public ThreeOfAKind() { }
+        public ThreeOfAKind() 
+        {
+            Name = "threeOfAKind";
+        }
 
         // methods
         public override bool ValidCheck(Die[] Dice)
