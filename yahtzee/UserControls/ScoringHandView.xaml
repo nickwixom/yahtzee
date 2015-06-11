@@ -20,18 +20,13 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             
         </Grid.ColumnDefinitions>
-        
-        <!--
-        <TextBlock Grid.Column="0" Text="{Binding Name}"></TextBlock>
-        
-        <TextBlock Grid.Column="1" Text="{Binding Score}"></TextBlock>
--->
+
         <TextBlock Grid.Column="0" Text="{Binding Name}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center"></TextBlock>
 
         <Image  Source="{Binding BasePip, Converter={StaticResource PipsToImageConverter}}" x:Name="dice" Grid.Column="1" RenderOptions.BitmapScalingMode="Fant" Stretch="Fill"  
                 Height="40" Width="40" Margin="10,0" HorizontalAlignment="Left"></Image>
 
-        <TextBlock Grid.Column="2" Text="{Binding Score}" FontSize="20" FontWeight="SemiBold" Foreground="Red" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Grid.Column="2" Text="{Binding Score, Mode=TwoWay}" FontSize="20" FontWeight="SemiBold" Foreground="Red" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
 
     </Grid>
 </UserControl>

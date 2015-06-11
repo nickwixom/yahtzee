@@ -21,13 +21,13 @@ namespace yahtzee.Scoring
         }
 
         // methods
-        public override bool ValidCheck(Die[] Dice)
+        public override bool ValidCheck(Hand hand)
         {
-            bool checkRepeat = RepeatCheck(Dice, 5);
+            bool checkRepeat = RepeatCheck(hand, 5);
             return checkRepeat;
         }
 
-        public override int CalcScore(Die[] Dice)
+        public override int CalcScore(Hand hand)
         {
             int score = 50;
             return score;

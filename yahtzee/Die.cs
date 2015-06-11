@@ -44,10 +44,6 @@ namespace yahtzee
         public Die() 
         {
             Locked = false;
-            /*
-            // make pips random
-            Roll();
-             */
         }
 
         // methods

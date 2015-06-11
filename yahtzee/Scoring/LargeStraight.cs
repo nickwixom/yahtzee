@@ -22,12 +22,12 @@ namespace yahtzee.Scoring
 
 
         // methods
-        public override bool ValidCheck(Die[] Dice)
+        public override bool ValidCheck(Hand hand)
         {
-            bool checkConsecutive = IsConsecutive(Dice, 5);
+            bool checkConsecutive = IsConsecutive(hand, 5);
             return checkConsecutive;
         }
-        public override int CalcScore(Die[] Dice)
+        public override int CalcScore(Hand hand)
         {
             int score = 40;
             return score;

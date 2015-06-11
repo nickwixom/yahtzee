@@ -78,18 +78,38 @@ namespace yahtzee
 
         public void InitializeIntoGame(Game g)
         {
-            UpperScores = new List<ScoringHands>(g.UpperScoringHands.Count);
+            // create list of all scoring hands in order
+            UpperScores = new List<ScoringHands>();
+            LowerScores = new List<ScoringHands>();
+            ScoringHands[] topHalf = {
+                                                 new TopHalfScoringHands(1, "Ones"),
+                                                 new TopHalfScoringHands(2, "Twos"),
+                                                 new TopHalfScoringHands(3, "Threes"),
+                                                 new TopHalfScoringHands(4, "Fours"),
+                                                 new TopHalfScoringHands(5, "Fives"),
+                                                 new TopHalfScoringHands(6, "Sixes"),
+                                                 new UpperBonus()
+                                             };
+            ScoringHands[] botHalf = {
+                                                 new ThreeOfAKind(),
+                                                 new FourOfAKind(),
+                                                 new FullHouse(),
+                                                 new SmallStraight(),
+                                                 new LargeStraight(),
+                                                 new Yahtzee(),
+                                                 new Chance()
+                                             };
 
-            for (int i = 0; i < g.UpperScoringHands.Count; i++)
-            {
-                UpperScores.Add(g.UpperScoringHands[i]);
-            }
-            LowerScores = new List<ScoringHands>(g.LowerScoringHands.Count);
+            UpperScores.AddRange(topHalf);
+            LowerScores.AddRange(botHalf);
 
-            for (int i = 0; i < g.LowerScoringHands.Count; i++)
-            {
-                LowerScores.Add(g.LowerScoringHands[i]);
-            }
+            UpperScores.ForEach(s => s.AssociatedPlayer = this);
+            LowerScores.ForEach(s => s.AssociatedPlayer = this);
+        }
+
+        public void CheckScores()
+        {
+            CurrentHand.CheckScores(CurrentHand, UpperScores, LowerScores);
         }
     }
 }

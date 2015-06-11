@@ -15,19 +15,19 @@ namespace yahtzee.Scoring
         }
 
         // methods
-        public override bool ValidCheck(Die[] Dice)
+        public override bool ValidCheck(Hand hand)
         {
             bool valid = false;
-            if (RepeatCheck(Dice, 2) || RepeatCheck(Dice, 3))
+            if (RepeatCheck(hand, 2) || RepeatCheck(hand, 3))
             {
-                List<int> allPips = Dice.Select(d => d.Pips).OrderBy(d => d).Distinct().ToList();
+                List<int> allPips = hand.Dice.Select(d => d.Pips).OrderBy(d => d).Distinct().ToList();
                 int checkDistinct = allPips.Count;
                 valid = (checkDistinct == 2);
             }
             return valid;
         }
 
-        public override int CalcScore(Die[] Dice)
+        public override int CalcScore(Hand hand)
         {
             int score = 25;
             return score;

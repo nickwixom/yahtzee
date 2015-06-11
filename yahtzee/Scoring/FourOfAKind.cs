@@ -12,18 +12,19 @@ namespace yahtzee.Scoring
         public FourOfAKind() 
         {
             Name = "4 of a kind";
+            
         }
 
         // methods
-        public override bool ValidCheck(Die[] Dice)
+        public override bool ValidCheck(Hand hand)
         {
-            bool checkRepeat = RepeatCheck(Dice, 4);
+            bool checkRepeat = RepeatCheck(hand, 4);
             return checkRepeat;
         }
-        public override int CalcScore(Die[] Dice)
+        public override int CalcScore(Hand hand)
         {
             int score = 0;
-            score = Dice.Select(d => d.Pips).Sum();
+            score = hand.Dice.Select(d => d.Pips).Sum();
             return score;
         }
 

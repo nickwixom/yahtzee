@@ -82,20 +82,9 @@ namespace yahtzee
 
                 players.Add(new Player(playerName));
 			}
-            */
 
-            // short way...
-       //     List<Player> players = new List<Player>(2) { new Player("Oli"), new Player("Nick") };
-
-            // start a new game with these players
-
-      //      CurrentGame = new Game(players);
-
-            
-            // even shorter way....
-
-            // make the first player active
-            
+            CurrentGame = new Game(players);
+             */
         }
 
         private void roll_Click(object sender, RoutedEventArgs e)
@@ -103,6 +92,7 @@ namespace yahtzee
             if (CurrentGame.ActivePlayer.CurrentHand.RollNumber < 3)
             {
                 CurrentGame.ActivePlayer.CurrentHand.Roll();
+                CurrentGame.ActivePlayer.CheckScores();
                 roll.Content = "Roll";
             }
             else if (CurrentGame.ActivePlayer.CurrentHand.RollNumber == 3)

@@ -13,7 +13,6 @@ namespace yahtzee.Scoring
 
 
         // properties
-
         public int BasePip { get; set; }
 
         // constructors
@@ -31,18 +30,18 @@ namespace yahtzee.Scoring
 
 
         // methods
-        public override bool ValidCheck(Die[] Dice)
+        public override bool ValidCheck(Hand hand)
         {
             bool valid = false;
-            valid = Dice.Any(item => item.Pips == BasePip);
+            valid = hand.Dice.Any(item => item.Pips == BasePip);
             return valid;
         }
 
-        public override int CalcScore(Die[] Dice)
+        public override int CalcScore(Hand hand)
         {
             int score = 0;
 
-            foreach (Die element in Dice)
+            foreach (Die element in hand.Dice)
             {
                 if (element.Pips == BasePip)
                 {

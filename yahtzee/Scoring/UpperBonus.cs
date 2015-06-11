@@ -53,14 +53,14 @@ namespace yahtzee.Scoring
         }
 
 
-        public override bool ValidCheck(Die[] Dice)
+        public override bool ValidCheck(Hand hand)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public override int CalcScore(Die[] Dice)
+        public override int CalcScore(Hand hand)
         {
-            throw new NotImplementedException();
+            return CalcUpperScore(AssociatedPlayer.UpperScores);
         }
     }
 }

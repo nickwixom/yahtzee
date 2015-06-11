@@ -9,9 +9,9 @@ namespace yahtzee.Scoring
     public abstract class Repeats : ScoringHands
     {
         // methods
-        public bool RepeatCheck(Die[] Dice, int numRepeat)
+        public bool RepeatCheck(Hand hand, int numRepeat)
         {
-            List<int> allPips = Dice.Select(d => d.Pips).ToList();
+            List<int> allPips = hand.Dice.Select(d => d.Pips).ToList();
 
             bool valid = false;
 

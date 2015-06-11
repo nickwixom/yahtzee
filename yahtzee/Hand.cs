@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using yahtzee.Scoring;
+
 namespace yahtzee
 {
-    public class Hand
+    public class Hand : INotifyPropertyChanged
     {
         // fields
         static public int NumDie = 5;
@@ -58,6 +60,31 @@ namespace yahtzee
             RollNumber = 1;
         }
 
+        public void CheckScores(Hand hand, List<ScoringHands> upperScoring, List<ScoringHands> lowerScoring)
+        {
+            int score = 0;
+            foreach (ScoringHands s in upperScoring)
+            {
+                if (s.ValidCheck(hand))
+                {
+                    s.Valid = true;
+                    score = s.CalcScore(hand);
+                }
+                s.Score = score;
+            }
+            foreach (ScoringHands t in lowerScoring)
+            {
+                if (t.ValidCheck(hand))
+                {
+                    t.Valid = true;
+                    score = t.CalcScore(hand);
+                }
+                t.Score = score;
+            }
+        }
 
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

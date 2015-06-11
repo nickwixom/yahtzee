@@ -21,9 +21,9 @@ namespace yahtzee
 
         public Player ActivePlayer { get { return MainWindow.Singleton.CurrentGame.Players.First(p => p.IsActive); } }
 
-        public List<ScoringHands> LowerScoringHands { get; set; }
+   //     public List<ScoringHands> LowerScoringHands { get; set; }
 
-        public List<ScoringHands> UpperScoringHands { get; set; }
+   //     public List<ScoringHands> UpperScoringHands { get; set; }
 
         // constructors
         public Game() { }
@@ -35,29 +35,6 @@ namespace yahtzee
             // make the first player active
             Players[0].IsActive = true;
 
-            // create list of all scoring hands in order
-            LowerScoringHands = new List<ScoringHands>();
-            UpperScoringHands = new List<ScoringHands>();
-            ScoringHands[] topHalf = {
-                                                 new TopHalfScoringHands(1, "Ones"),
-                                                 new TopHalfScoringHands(2, "Twos"),
-                                                 new TopHalfScoringHands(3, "Threes"),
-                                                 new TopHalfScoringHands(4, "Fours"),
-                                                 new TopHalfScoringHands(5, "Fives"),
-                                                 new TopHalfScoringHands(6, "Sixes"),
-                                                 new UpperBonus()
-                                             };
-            ScoringHands[] botHalf = {
-                                                 new ThreeOfAKind(),
-                                                 new FourOfAKind(),
-                                                 new FullHouse(),
-                                                 new SmallStraight(),
-                                                 new LargeStraight(),
-                                                 new Yahtzee(),
-                                                 new Chance()
-                                             };
-            UpperScoringHands.AddRange(topHalf);
-            LowerScoringHands.AddRange(botHalf);
             
 
             // initialize players into game
@@ -72,16 +49,7 @@ namespace yahtzee
             // give a new hand
             MainWindow.Singleton.CurrentGame.ActivePlayer.CurrentHand.Reset();
         }
-        /*
-        public void CheckRolls(int rollNumber)
-        {
-            if (rollNumber == 3)
-            {
-                NewTurn();
-                ActivePlayer.CU
-            }
-        }
-        */
+
         // static methods
         static public Game NewDefaultGame()
         {

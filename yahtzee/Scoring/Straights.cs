@@ -9,10 +9,10 @@ namespace yahtzee.Scoring
     public abstract class Straights : ScoringHands
     {
         // methods
-        public bool IsConsecutive(Die[] Dice, int numDistinct)
+        public bool IsConsecutive(Hand hand, int numDistinct)
         {
             bool valid = false;
-            List<int> allPips = Dice.Select(d => d.Pips).OrderBy(d => d).Distinct().ToList();
+            List<int> allPips = hand.Dice.Select(d => d.Pips).OrderBy(d => d).Distinct().ToList();
             int checkDistinct = allPips.Count;
             bool sequenceCheck = allPips.SequenceEqual(Enumerable.Range(allPips[0], allPips.Count));
             if (checkDistinct > numDistinct & sequenceCheck)

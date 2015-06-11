@@ -19,7 +19,7 @@
  
             <Image Source="{Binding Pips, Converter={StaticResource PipsToImageConverter}}" Height="100" x:Name="dice1" Grid.Column="1" Grid.Row="2" Width="215"  Margin="10" />
      
-            <ToggleButton Content="Keep" Width="75" Height="30" IsChecked="{Binding Locked, Mode=TwoWay}"></ToggleButton>
+            <ToggleButton Content="Keep" Width="75" Height="30" IsChecked="{Binding Locked}"></ToggleButton>
         </StackPanel>
             
     </Grid>
