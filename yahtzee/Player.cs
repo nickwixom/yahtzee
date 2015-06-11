@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using yahtzee.Scoring;
+
 namespace yahtzee
 {
     public class Player
@@ -44,7 +46,8 @@ namespace yahtzee
             }
         }
 
-        public Dictionary<Scoring.ScoringHands, bool> Scores { get; set; }
+        public List<ScoringHands> LowerScores { get; set; }
+        public List<ScoringHands> UpperScores { get; set; }
 
         // constructors
         public Player() : this("") { }
@@ -75,11 +78,17 @@ namespace yahtzee
 
         public void InitializeIntoGame(Game g)
         {
-            Scores = new Dictionary<Scoring.ScoringHands, bool>(g.AllScoringHands.Count);
+            UpperScores = new List<ScoringHands>(g.UpperScoringHands.Count);
 
-            foreach (Scoring.ScoringHands h in g.AllScoringHands)
+            for (int i = 0; i < g.UpperScoringHands.Count; i++)
             {
-                Scores.Add(h, false);
+                UpperScores.Add(g.UpperScoringHands[i]);
+            }
+            LowerScores = new List<ScoringHands>(g.LowerScoringHands.Count);
+
+            for (int i = 0; i < g.LowerScoringHands.Count; i++)
+            {
+                LowerScores.Add(g.LowerScoringHands[i]);
             }
         }
     }

@@ -11,7 +11,7 @@ namespace yahtzee.Scoring
         // constructors
         public FullHouse()
         {
-            Name = "fullHouse";
+            Name = "Full House";
         }
 
         // methods

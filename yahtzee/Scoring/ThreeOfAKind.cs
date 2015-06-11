@@ -11,7 +11,7 @@ namespace yahtzee.Scoring
         // constructors
         public ThreeOfAKind() 
         {
-            Name = "threeOfAKind";
+            Name = "3 of a kind";
         }
 
         // methods

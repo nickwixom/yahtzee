@@ -17,7 +17,7 @@ namespace yahtzee.Scoring
         // constructors
         public LargeStraight() 
         {
-            Name = "largeStraight";
+            Name = "Lg. Straight";
         }
 
 

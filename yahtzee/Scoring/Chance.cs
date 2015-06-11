@@ -10,7 +10,7 @@ namespace yahtzee.Scoring
     {
         public Chance()
         {
-            Name = "chance";
+            Name = "Chance";
         }
         public override bool ValidCheck(Die[] Dice)
         {

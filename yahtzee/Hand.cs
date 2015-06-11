@@ -10,12 +10,15 @@ namespace yahtzee
     public class Hand
     {
         // fields
-        public Die[] Dice { get; set; } 
-
-        // properties
         static public int NumDie = 5;
 
-        public int MaxValue { get; set; }
+
+        // properties
+        
+        public Die[] Dice { get; set; }
+
+        public int RollNumber { get; set; }
+
 
         // constructors
         public Hand() 
@@ -27,26 +30,20 @@ namespace yahtzee
             {
                 // the die is rolled when instantiated
                 Dice[i] = new Die();
+                // make each image blank on first load
+                Dice[i].Pips = 0;
             }
         }
 
         // methods
-        public int CalcMaxValue()
-        {
-            foreach (Die value in Dice)
-            {
-                MaxValue += value.Pips;
-            }
-            return MaxValue;
-        }
-
         public void Roll()
         {
             for (int i = 0; i < NumDie; i++)
             {
-                // the roll method does not change the value if its locked
-                 Dice[i].Roll();
+            // the roll method does not change the value if its locked
+            Dice[i].Roll();
             }
+            RollNumber++;
         }
 
         public void Reset()
@@ -55,10 +52,12 @@ namespace yahtzee
             for (int i = 0; i < NumDie; i++)
             {
                 Dice[i].Locked = false;
+                Dice[i].Pips = 0;
             }
 
-            Roll();
+            RollNumber = 1;
         }
+
 
     }
 }

@@ -10,11 +10,12 @@ namespace yahtzee
     public class Die : INotifyPropertyChanged
     {
         // fields
-        
+        Random rnd = new Random(Guid.NewGuid().GetHashCode());
 
         // properties
         // value of dice
         private int pips = 1;
+        private bool locked = false;
         public int Pips 
         {
             get { return pips; }
@@ -27,22 +28,32 @@ namespace yahtzee
         }
 
         // is dice locked
-        public bool Locked { get; set; }
+        public bool Locked 
+        {
+            get { return locked; }
+            set
+            {
+                locked = value;
+
+                PropertyChanged.Raise(this, "Locked");
+            }
+        }
 
 
         // constructors
         public Die() 
         {
             Locked = false;
-
+            /*
             // make pips random
             Roll();
+             */
         }
 
         // methods
         public void Roll()
         {
-            Random rnd = new Random(Guid.NewGuid().GetHashCode());
+
             if (!Locked)
             {
                 Pips = rnd.Next(1, 6);

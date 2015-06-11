@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\App.xaml
-2416748220
+3258632604
 
-23598624069
+2523176617
 15-1008966795
-MainWindow.xaml;UserControls\Dice.xaml;
+MainWindow.xaml;UserControls\Dice.xaml;UserControls\ScoringHandView.xaml;
 
 False
 

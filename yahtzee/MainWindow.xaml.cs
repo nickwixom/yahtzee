@@ -100,8 +100,21 @@ namespace yahtzee
 
         private void roll_Click(object sender, RoutedEventArgs e)
         {
-            CurrentGame.ActivePlayer.CurrentHand.Roll();
-
+            if (CurrentGame.ActivePlayer.CurrentHand.RollNumber < 3)
+            {
+                CurrentGame.ActivePlayer.CurrentHand.Roll();
+                roll.Content = "Roll";
+            }
+            else if (CurrentGame.ActivePlayer.CurrentHand.RollNumber == 3)
+            {
+                CurrentGame.ActivePlayer.CurrentHand.Roll();
+                roll.Content = "Next Player";
+            }
+            else
+            {
+                CurrentGame.ActivePlayer.CurrentHand.Reset();
+                roll.Content = "Roll";
+            }
 
         }
 

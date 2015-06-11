@@ -11,7 +11,7 @@ namespace yahtzee.Scoring
         // constructors
         public SmallStraight() 
         {
-            Name = "smallStraight";
+            Name = "Sm. Straight";
         }
 
         // methods

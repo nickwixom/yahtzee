@@ -18,12 +18,35 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Image Source="Images/yahtzee.png" x:Name="yahtzee" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Top" Margin="10.4,25,0,0" Stretch="Fill"/>
+        <Image Source="Images/yahtzee.png" x:Name="yahtzee" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="0" VerticalAlignment="Top" 
+               RenderOptions.BitmapScalingMode="Fant" Stretch="Fill"/>
+        
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="scorecard" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="745" Height="390" Margin="10"/>
-
+            <ListBox Name="listBoxLower" ItemsSource="{Binding Path=ActivePlayer.UpperScores}" Grid.Column="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ui:ScoringHandView></ui:ScoringHandView>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Name="listBoxUpper" ItemsSource="{Binding Path=ActivePlayer.LowerScores}" Grid.Column="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ui:ScoringHandView></ui:ScoringHandView>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+        </Grid>
+        
+<!--
         <TextBox x:Name="scoreboard" Grid.Column="3" Grid.Row="1" Width="215" Height="220" VerticalAlignment="Top" Margin="19,4,21,0"/>
-
+-->
         <Button x:Name="start" Grid.Column="4" Height="75" Content="Start!" FontSize="32" Click="start_Click" Margin="22,25,10,139" Grid.Row="1"/>
 
         <Button Name="roll" Grid.Column="4" Grid.Row="1" Height="75" Content="Roll" FontSize="32" Click="roll_Click" Margin="22,131,10,34"/>
@@ -34,22 +57,5 @@
         <ui:Dice Grid.Column="3" Grid.Row="2" DataContext="{Binding Path=ActivePlayer.CurrentHand.Dice[3]}" Margin="0,35,0,-33" Grid.RowSpan="2"></ui:Dice>
         <ui:Dice Grid.Column="4" Grid.Row="2" DataContext="{Binding Path=ActivePlayer.CurrentHand.Dice[4]}" Margin="0,35,0,-33" Grid.RowSpan="2"></ui:Dice>
 
-        <!--
-        <ui:Dice Grid.Column="0" Grid.Row="2"></ui:Dice>
--->
-        <!--
-        <Image Source="Binding  Images/dice.png"  x:Name="dice0" />
-        <Image Source="Images/dice.png"  x:Name="dice1" Grid.Column="1" Grid.Row="2" Width="215" Height="215" Margin="10" />
-        <Image Source="Images/dice.png"  x:Name="dice2" Grid.Column="2" Grid.Row="2" Width="215" Height="215" Margin="10" />
-        <Image Source="Images/dice.png"  x:Name="dice3" Grid.Column="3" Grid.Row="2" Width="215" Height="215" Margin="10" />
-        <Image Source="Images/dice.png"  x:Name="dice4" Grid.Column="4" Grid.Row="2" Width="215" Height="215" Margin="10" />
-
-        <Button x:Name="lockOne" Grid.Column="0" Grid.Row="3" Width="235" Height="25" Margin="10" Content="Keep" Click="lockOne_Click"/>
-        <Button x:Name="lockTwo" Grid.Column="1" Grid.Row="3" Width="235" Height="25" Margin="10" Content="Keep" Click="lockTwo_Click"/>
-        <Button x:Name="lockThree" Grid.Column="2" Grid.Row="3" Width="235" Height="25" Margin="10" Content="Keep" Click="lockThree_Click"/>
-        <Button x:Name="lockFour" Grid.Column="3" Grid.Row="3" Width="235" Height="25" Margin="10" Content="Keep" Click="lockFour_Click"/>
-        <Button x:Name="lockFive" Grid.Column="4" Grid.Row="3" Width="235" Height="25" Margin="10" Content="Keep" Click="lockFive_Click"/>
-
--->
     </Grid>
 </Window>

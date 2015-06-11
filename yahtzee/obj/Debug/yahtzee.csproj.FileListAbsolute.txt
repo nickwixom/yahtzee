@@ -30,3 +30,5 @@ C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\GeneratedInternalTypeHel
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee_MarkupCompile.lref
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\Dice.baml
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.csprojResolveAssemblyReference.cache
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\ScoringHandView.baml
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\ScoringHandView.g.cs

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using yahtzee.Scoring;
+
 namespace yahtzee
 {
     public class Game
@@ -19,7 +21,9 @@ namespace yahtzee
 
         public Player ActivePlayer { get { return MainWindow.Singleton.CurrentGame.Players.First(p => p.IsActive); } }
 
-        public List<Scoring.ScoringHands> AllScoringHands { get; set; }
+        public List<ScoringHands> LowerScoringHands { get; set; }
+
+        public List<ScoringHands> UpperScoringHands { get; set; }
 
         // constructors
         public Game() { }
@@ -31,27 +35,29 @@ namespace yahtzee
             // make the first player active
             Players[0].IsActive = true;
 
-            //c create list of all scoring hands in order
-            AllScoringHands = new List<Scoring.ScoringHands>();
-            Scoring.ScoringHands[] topHalf = {
-                                                 new Scoring.TopHalfScoringHands(1, "ones"),
-                                                 new Scoring.TopHalfScoringHands(2, "twos"),
-                                                 new Scoring.TopHalfScoringHands(3, "threes"),
-                                                 new Scoring.TopHalfScoringHands(4, "fours"),
-                                                 new Scoring.TopHalfScoringHands(5, "fives"),
-                                                 new Scoring.TopHalfScoringHands(6, "sixes")
+            // create list of all scoring hands in order
+            LowerScoringHands = new List<ScoringHands>();
+            UpperScoringHands = new List<ScoringHands>();
+            ScoringHands[] topHalf = {
+                                                 new TopHalfScoringHands(1, "Ones"),
+                                                 new TopHalfScoringHands(2, "Twos"),
+                                                 new TopHalfScoringHands(3, "Threes"),
+                                                 new TopHalfScoringHands(4, "Fours"),
+                                                 new TopHalfScoringHands(5, "Fives"),
+                                                 new TopHalfScoringHands(6, "Sixes"),
+                                                 new UpperBonus()
                                              };
-            Scoring.ScoringHands[] botHalf = {
-                                                 new Scoring.ThreeOfAKind(),
-                                                 new Scoring.FourOfAKind(),
-                                                 new Scoring.FullHouse(),
-                                                 new Scoring.SmallStraight(),
-                                                 new Scoring.LargeStraight(),
-                                                 new Scoring.Yahtzee(),
-                                                 new Scoring.Chance()
+            ScoringHands[] botHalf = {
+                                                 new ThreeOfAKind(),
+                                                 new FourOfAKind(),
+                                                 new FullHouse(),
+                                                 new SmallStraight(),
+                                                 new LargeStraight(),
+                                                 new Yahtzee(),
+                                                 new Chance()
                                              };
-            AllScoringHands.AddRange(topHalf);
-            AllScoringHands.AddRange(botHalf);
+            UpperScoringHands.AddRange(topHalf);
+            LowerScoringHands.AddRange(botHalf);
             
 
             // initialize players into game
@@ -63,9 +69,19 @@ namespace yahtzee
         {
             // make the next player active
             MainWindow.Singleton.CurrentGame.ActivePlayer.Next().IsActive = true;
+            // give a new hand
+            MainWindow.Singleton.CurrentGame.ActivePlayer.CurrentHand.Reset();
         }
-
-        
+        /*
+        public void CheckRolls(int rollNumber)
+        {
+            if (rollNumber == 3)
+            {
+                NewTurn();
+                ActivePlayer.CU
+            }
+        }
+        */
         // static methods
         static public Game NewDefaultGame()
         {

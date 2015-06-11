@@ -24,6 +24,9 @@ namespace yahtzee.Scoring
             BasePip = basePip;
 
             Name = name;
+
+            
+
         }
 
 
@@ -38,7 +41,7 @@ namespace yahtzee.Scoring
         public override int CalcScore(Die[] Dice)
         {
             int score = 0;
-            // there should be a better way...
+
             foreach (Die element in Dice)
             {
                 if (element.Pips == BasePip)
