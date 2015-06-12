@@ -111,5 +111,14 @@ namespace yahtzee
         {
             CurrentHand.CheckScores(CurrentHand, UpperScores, LowerScores);
         }
+
+        public void UpperFinalScores()
+        {
+            CurrentHand.PopulateUpperFinalScores(UpperScores);
+        }
+        public void LowerFinalScores()
+        {
+            CurrentHand.PopulateLowerFinalScores(LowerScores);
+        }
     }
 }

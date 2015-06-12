@@ -17,6 +17,7 @@ using yahtzee.Scoring;
 
 using Mogre;
 using MogreNewt;
+using System.ComponentModel;
 
 namespace yahtzee
 {
@@ -92,13 +93,14 @@ namespace yahtzee
             if (CurrentGame.ActivePlayer.CurrentHand.RollNumber < 3)
             {
                 CurrentGame.ActivePlayer.CurrentHand.Roll();
-                CurrentGame.ActivePlayer.CheckScores();
                 roll.Content = "Roll";
+                CurrentGame.ActivePlayer.CheckScores();
             }
             else if (CurrentGame.ActivePlayer.CurrentHand.RollNumber == 3)
             {
                 CurrentGame.ActivePlayer.CurrentHand.Roll();
                 roll.Content = "Next Player";
+                CurrentGame.ActivePlayer.CheckScores();
             }
             else
             {
@@ -106,6 +108,24 @@ namespace yahtzee
                 roll.Content = "Roll";
             }
 
+        }
+
+        private void UpperScoringHandView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            /*
+            var backgroundWorker = new BackgroundWorker();
+
+            backgroundWorker.DoWork += delegate
+            {
+                MainWindow.Singleton.CurrentGame.ActivePlayer.UpperScores.
+            }
+             */
+            MainWindow.Singleton.CurrentGame.ActivePlayer.UpperFinalScores();
+        }
+
+        private void LowerScoringHandView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.Singleton.CurrentGame.ActivePlayer.LowerFinalScores();
         }
 
 

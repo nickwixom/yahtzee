@@ -18,7 +18,7 @@ namespace yahtzee.Scoring
         public override bool ValidCheck(Hand hand)
         {
             bool valid = false;
-            if (RepeatCheck(hand, 2) || RepeatCheck(hand, 3))
+            if (RepeatCheck(hand, 3) & !RepeatCheck(hand, 4))
             {
                 List<int> allPips = hand.Dice.Select(d => d.Pips).OrderBy(d => d).Distinct().ToList();
                 int checkDistinct = allPips.Count;

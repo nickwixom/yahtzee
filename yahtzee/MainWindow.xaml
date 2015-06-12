@@ -31,14 +31,14 @@
             <ListBox Name="listBoxLower" ItemsSource="{Binding Path=ActivePlayer.UpperScores}" Grid.Column="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <ui:ScoringHandView></ui:ScoringHandView>
+                        <ui:ScoringHandView MouseDoubleClick="UpperScoringHandView_MouseDoubleClick" IsEnabled="{Binding Locked}"></ui:ScoringHandView>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <ListBox Name="listBoxUpper" ItemsSource="{Binding Path=ActivePlayer.LowerScores}" Grid.Column="1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <ui:ScoringHandView></ui:ScoringHandView>
+                        <ui:ScoringHandView MouseDoubleClick="LowerScoringHandView_MouseDoubleClick" IsEnabled="{Binding Locked}"></ui:ScoringHandView>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

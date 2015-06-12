@@ -12,6 +12,8 @@ namespace yahtzee.Scoring
         // properties
         int score = 0;
         bool valid = false;
+        int lockedScore = 0;
+        bool locked = true;
         public int Score
         {
             get { return score; }
@@ -33,6 +35,28 @@ namespace yahtzee.Scoring
                 valid = value;
 
                 PropertyChanged.Raise(this, "Valid");
+            }
+        }
+
+        public int LockedScore
+        {
+            get { return lockedScore; }
+            set
+            {
+                lockedScore = value;
+
+                PropertyChanged.Raise(this, "LockedScore");
+            }
+        }
+
+        public bool Locked
+        {
+            get { return locked; }
+            set
+            {
+                locked = value;
+
+                PropertyChanged.Raise(this, "Locked");
             }
         }
 

@@ -6,7 +6,7 @@
              xmlns:ui="clr-namespace:yahtzee.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="375">
-    <Grid Background="White" Margin="2">
+    <Grid Name="mainGrid"  Background="White" Margin="2">
 
         <Grid.Resources>
             <ui:PipsToImageConverter x:Key="PipsToImageConverter"></ui:PipsToImageConverter>
@@ -16,8 +16,10 @@
         <Grid.ColumnDefinitions>
             
             <ColumnDefinition Width="130"></ColumnDefinition>
-            <ColumnDefinition Width="130"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="45"></ColumnDefinition>
+            <ColumnDefinition Width="45"></ColumnDefinition>
+            <ColumnDefinition Width="45"></ColumnDefinition>
             
         </Grid.ColumnDefinitions>
 
@@ -27,6 +29,13 @@
                 Height="40" Width="40" Margin="10,0" HorizontalAlignment="Left"></Image>
 
         <TextBlock Grid.Column="2" Text="{Binding Score, Mode=TwoWay}" FontSize="20" FontWeight="SemiBold" Foreground="Red" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
-
+        
+        <TextBlock Grid.Column="3" Text="{Binding LockedScore}" FontSize="20" FontWeight="SemiBold" Foreground="Gray" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+        
+        <Button Tag="{Binding Locked}" Name="lockClick" Grid.Column="4" Margin="8" Content="Lock" Click="lockClick_Click">
+            
+        </Button>
+        
+        
     </Grid>
 </UserControl>

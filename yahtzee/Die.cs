@@ -15,7 +15,7 @@ namespace yahtzee
         // properties
         // value of dice
         private int pips = 1;
-        private bool locked = false;
+        private bool kept = false;
         public int Pips 
         {
             get { return pips; }
@@ -28,14 +28,14 @@ namespace yahtzee
         }
 
         // is dice locked
-        public bool Locked 
+        public bool Kept 
         {
-            get { return locked; }
+            get { return kept; }
             set
             {
-                locked = value;
+                kept = value;
 
-                PropertyChanged.Raise(this, "Locked");
+                PropertyChanged.Raise(this, "Kept");
             }
         }
 
@@ -43,14 +43,14 @@ namespace yahtzee
         // constructors
         public Die() 
         {
-            Locked = false;
+            Kept = false;
         }
 
         // methods
         public void Roll()
         {
 
-            if (!Locked)
+            if (!Kept)
             {
                 Pips = rnd.Next(1, 6);
             }

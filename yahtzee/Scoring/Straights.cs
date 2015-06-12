@@ -15,7 +15,7 @@ namespace yahtzee.Scoring
             List<int> allPips = hand.Dice.Select(d => d.Pips).OrderBy(d => d).Distinct().ToList();
             int checkDistinct = allPips.Count;
             bool sequenceCheck = allPips.SequenceEqual(Enumerable.Range(allPips[0], allPips.Count));
-            if (checkDistinct > numDistinct & sequenceCheck)
+            if (checkDistinct >= numDistinct & sequenceCheck)
                 valid = true;
             return valid;
 

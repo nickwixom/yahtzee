@@ -24,5 +24,11 @@ namespace yahtzee.UserControls
         {
             InitializeComponent();
         }
+
+        private void lockClick_Click(object sender, RoutedEventArgs e)
+        {
+            var locked = ((Button)sender).Tag;
+        }
+
     }
 }

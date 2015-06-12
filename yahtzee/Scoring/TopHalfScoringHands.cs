@@ -24,8 +24,6 @@ namespace yahtzee.Scoring
 
             Name = name;
 
-            
-
         }
 
 

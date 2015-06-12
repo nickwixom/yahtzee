@@ -9,7 +9,7 @@ using yahtzee.Scoring;
 
 namespace yahtzee
 {
-    public class Game
+    public class Game : INotifyPropertyChanged
     {
         // fields
 
@@ -61,5 +61,7 @@ namespace yahtzee
 
 
 
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
