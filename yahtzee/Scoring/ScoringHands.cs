@@ -13,7 +13,7 @@ namespace yahtzee.Scoring
         int score = 0;
         bool valid = false;
         int lockedScore = 0;
-        bool locked = true;
+        bool locked = false;
         public int Score
         {
             get { return score; }

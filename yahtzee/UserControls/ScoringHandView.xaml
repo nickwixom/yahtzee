@@ -10,6 +10,7 @@
 
         <Grid.Resources>
             <ui:PipsToImageConverter x:Key="PipsToImageConverter"></ui:PipsToImageConverter>
+            <ui:BoolToOppositeBoolConverter x:Key="BoolTooppositeBoolConverter"></ui:BoolToOppositeBoolConverter>
         </Grid.Resources>
         
         
@@ -31,11 +32,10 @@
         <TextBlock Grid.Column="2" Text="{Binding Score, Mode=TwoWay}" FontSize="20" FontWeight="SemiBold" Foreground="Red" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
         
         <TextBlock Grid.Column="3" Text="{Binding LockedScore}" FontSize="20" FontWeight="SemiBold" Foreground="Gray" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
-        
-        <Button Tag="{Binding Locked}" Name="lockClick" Grid.Column="4" Margin="8" Content="Lock" Click="lockClick_Click">
+
+        <Button Name="lockClick" Grid.Column="4" Margin="8" Content="Lock" Click="lockClick_Click" IsEnabled="{Binding Locked, Converter={StaticResource BoolTooppositeBoolConverter}}">
             
         </Button>
-        
         
     </Grid>
 </UserControl>

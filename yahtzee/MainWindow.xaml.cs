@@ -104,29 +104,12 @@ namespace yahtzee
             }
             else
             {
-                CurrentGame.ActivePlayer.CurrentHand.Reset();
+                CurrentGame.NewTurn();
                 roll.Content = "Roll";
             }
 
         }
 
-        private void UpperScoringHandView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            /*
-            var backgroundWorker = new BackgroundWorker();
-
-            backgroundWorker.DoWork += delegate
-            {
-                MainWindow.Singleton.CurrentGame.ActivePlayer.UpperScores.
-            }
-             */
-            MainWindow.Singleton.CurrentGame.ActivePlayer.UpperFinalScores();
-        }
-
-        private void LowerScoringHandView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MainWindow.Singleton.CurrentGame.ActivePlayer.LowerFinalScores();
-        }
 
 
 

@@ -13,17 +13,31 @@ namespace yahtzee
     {
         // fields
 
-
+        private List<Player> players = new List<Player>();
         // properties
-        public List<Player> Players { get; set; }
+        public List<Player> Players 
+        {
+            get { return players; }
+            set
+            {
+                players = value;
+
+                PropertyChanged.Raise(this, "Players");
+            }
+        }
 
         public int NumPlayers { get { return Players.Count; } }
 
-        public Player ActivePlayer { get { return MainWindow.Singleton.CurrentGame.Players.First(p => p.IsActive); } }
+        public Player ActivePlayer 
+        {
+            get { return MainWindow.Singleton.CurrentGame.Players.First(p => p.IsActive); }
+            set
+            {
+                Player p = value;
 
-   //     public List<ScoringHands> LowerScoringHands { get; set; }
-
-   //     public List<ScoringHands> UpperScoringHands { get; set; }
+                PropertyChanged.Raise(this, "ActivePlayer");
+            }
+        }
 
         // constructors
         public Game() { }

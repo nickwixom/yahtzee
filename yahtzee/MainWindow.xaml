@@ -28,25 +28,31 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <ListBox Name="listBoxLower" ItemsSource="{Binding Path=ActivePlayer.UpperScores}" Grid.Column="0">
+            <ListBox Name="listBoxUpper" ItemsSource="{Binding Path=ActivePlayer.UpperScores}" Grid.Column="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <ui:ScoringHandView MouseDoubleClick="UpperScoringHandView_MouseDoubleClick" IsEnabled="{Binding Locked}"></ui:ScoringHandView>
+                        <ui:ScoringHandView ></ui:ScoringHandView>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <ListBox Name="listBoxUpper" ItemsSource="{Binding Path=ActivePlayer.LowerScores}" Grid.Column="1">
+            <ListBox Name="listBoxLower" ItemsSource="{Binding Path=ActivePlayer.LowerScores}" Grid.Column="1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <ui:ScoringHandView MouseDoubleClick="LowerScoringHandView_MouseDoubleClick" IsEnabled="{Binding Locked}"></ui:ScoringHandView>
+                        <ui:ScoringHandView ></ui:ScoringHandView>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             
         </Grid>
         
-        <TextBox x:Name="scoreboard" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="10" Height="200"/>
-        
+        <ListBox x:Name="scoreboard" ItemsSource="{Binding Path=CurrentGame.Players}" Grid.Column="3" Grid.Row="1" Margin="10" Height="200">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ui:PlayersView></ui:PlayersView>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <StackPanel Grid.Column="4" Grid.Row="1" >
             <Button x:Name="start" Grid.Column="4" Height="75" Content="Start!" FontSize="32" Click="start_Click" Margin="10,20" Grid.Row="1"/>
 

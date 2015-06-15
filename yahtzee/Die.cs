@@ -56,6 +56,11 @@ namespace yahtzee
             }
         }
 
+        public void Reset()
+        {
+            Pips = 0;
+            Kept = false;
+        }
         public override string ToString()
         {
             return Pips.ToString();

@@ -9,15 +9,33 @@ using yahtzee.Scoring;
 
 namespace yahtzee
 {
-    public class Player
+    public class Player : INotifyPropertyChanged
     {
         // fields
-
-
+        private string name = "null";
+        private int currentScore = 0;
         // properties
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
 
-        public int CurrentScore { get; set; }
+                PropertyChanged.Raise(this, "Name");
+            }
+        }
+
+        public int CurrentScore
+        {
+            get { return currentScore; }
+            set
+            {
+                currentScore = value;
+
+                PropertyChanged.Raise(this, "CurrentScore");
+            }
+        }
 
         public Hand CurrentHand { get; set; }
 
@@ -48,6 +66,8 @@ namespace yahtzee
 
         public List<ScoringHands> LowerScores { get; set; }
         public List<ScoringHands> UpperScores { get; set; }
+
+
 
         // constructors
         public Player() : this("") { }
@@ -81,7 +101,8 @@ namespace yahtzee
             // create list of all scoring hands in order
             UpperScores = new List<ScoringHands>();
             LowerScores = new List<ScoringHands>();
-            ScoringHands[] topHalf = {
+            
+            ScoringHands[] upperHands = {
                                                  new TopHalfScoringHands(1, "Ones"),
                                                  new TopHalfScoringHands(2, "Twos"),
                                                  new TopHalfScoringHands(3, "Threes"),
@@ -90,7 +111,7 @@ namespace yahtzee
                                                  new TopHalfScoringHands(6, "Sixes"),
                                                  new UpperBonus()
                                              };
-            ScoringHands[] botHalf = {
+            ScoringHands[] lowerHands = {
                                                  new ThreeOfAKind(),
                                                  new FourOfAKind(),
                                                  new FullHouse(),
@@ -100,8 +121,9 @@ namespace yahtzee
                                                  new Chance()
                                              };
 
-            UpperScores.AddRange(topHalf);
-            LowerScores.AddRange(botHalf);
+            UpperScores.AddRange(upperHands);
+            LowerScores.AddRange(lowerHands);
+
 
             UpperScores.ForEach(s => s.AssociatedPlayer = this);
             LowerScores.ForEach(s => s.AssociatedPlayer = this);
@@ -112,13 +134,22 @@ namespace yahtzee
             CurrentHand.CheckScores(CurrentHand, UpperScores, LowerScores);
         }
 
-        public void UpperFinalScores()
+        public void LockScores(List<ScoringHands> upperScoring, List<ScoringHands> lowerScoring)
         {
-            CurrentHand.PopulateUpperFinalScores(UpperScores);
+            foreach (ScoringHands s in upperScoring)
+            {
+                if (s.Locked)
+                    s.LockedScore = s.Score;
+            }
+            foreach (ScoringHands s in lowerScoring)
+            {
+                if (s.Locked)
+                    s.LockedScore = s.Score;
+            }
         }
-        public void LowerFinalScores()
-        {
-            CurrentHand.PopulateLowerFinalScores(LowerScores);
-        }
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

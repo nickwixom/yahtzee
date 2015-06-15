@@ -13,30 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using yahtzee.Scoring;
-
 namespace yahtzee.UserControls
 {
     /// <summary>
-    /// Interaction logic for ScoringHandView.xaml
+    /// Interaction logic for PlayersView.xaml
     /// </summary>
-    public partial class ScoringHandView : UserControl
+    public partial class PlayersView : UserControl
     {
-        public ScoringHandView()
+        public PlayersView()
         {
             InitializeComponent();
-        }
-
-        private void lockClick_Click(object sender, RoutedEventArgs e)
-        {
-            ScoringHands hand = DataContext as ScoringHands;
-
-            if (hand != null)
-            {
-                hand.Locked = true;
-
-                hand.LockedScore = hand.Score;
-            }
         }
     }
 }

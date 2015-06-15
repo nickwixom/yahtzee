@@ -51,10 +51,9 @@ namespace yahtzee
         public void Reset()
         {
             // un-keeps all die and rolls them
-            for (int i = 0; i < NumDie; i++)
+            foreach (Die d in Dice)
             {
-                Dice[i].Kept = false;
-                Dice[i].Pips = 0;
+                d.Reset();
             }
 
             RollNumber = 1;
@@ -74,35 +73,17 @@ namespace yahtzee
                 }
                 s.Score = score;
             }
-            foreach (ScoringHands t in lowerScoring)
-            {
-                score = 0;
-                if (t.ValidCheck(hand))
-                {
-                    t.Valid = true;
-                    score = t.CalcScore(hand);
-                }
-                t.Score = score;
-            }
-        }
-
-        public void PopulateUpperFinalScores(List<ScoringHands> upperScoring)
-        {
-            foreach (ScoringHands s in upperScoring)
-            {
-                if (!s.Locked)
-                    s.LockedScore = s.Score;
-            }
-        }
-        public void PopulateLowerFinalScores(List<ScoringHands> lowerScoring)
-        {
             foreach (ScoringHands s in lowerScoring)
             {
-                if (!s.Locked)
-                    s.LockedScore = s.Score;
+                score = 0;
+                if (s.ValidCheck(hand))
+                {
+                    s.Valid = true;
+                    score = s.CalcScore(hand);
+                }
+                s.Score = score;
             }
         }
-
 
 
         public event PropertyChangedEventHandler PropertyChanged;

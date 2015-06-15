@@ -32,3 +32,5 @@ C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\Dice.baml
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\yahtzee.csprojResolveAssemblyReference.cache
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\ScoringHandView.baml
 C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\ScoringHandView.g.cs
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\PlayersView.baml
+C:\Users\Nick_Wixom\Documents\Yahtzee\yahtzee\obj\Debug\UserControls\PlayersView.g.cs

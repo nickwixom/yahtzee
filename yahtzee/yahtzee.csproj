@@ -73,10 +73,14 @@
     <Compile Include="Scoring\TopHalfScoringHands.cs" />
     <Compile Include="Scoring\UpperBonus.cs" />
     <Compile Include="Scoring\Yahtzee.cs" />
+    <Compile Include="UserControls\BoolToOppositeBoolConverter.cs" />
     <Compile Include="UserControls\Dice.xaml.cs">
       <DependentUpon>Dice.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PipsToImageConverter.cs" />
+    <Compile Include="UserControls\PlayersView.xaml.cs">
+      <DependentUpon>PlayersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ScoringHandView.xaml.cs">
       <DependentUpon>ScoringHandView.xaml</DependentUpon>
     </Compile>
@@ -96,6 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\Dice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PlayersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
